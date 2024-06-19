@@ -1,3 +1,4 @@
+# Игра угадайка
 import random
 
 def is_valid(num):
