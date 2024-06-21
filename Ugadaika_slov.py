@@ -87,13 +87,21 @@ def play(word):
 
     print('Давайте играть в угадайку слов!')
     display_hangman(tries)
-    print(word_completion, f'У вас {tries}-попыток', sep='\n')
-    text = input().lower()
-    if text.isalpha():
-        for i in range(len(word)):
-            if
-    else:
-        print('Введите букву или слово целиком!')
+    print(f'Загаданное слово: {word_completion}', f'У Вас {tries}-попыток чтобы разгадать слово!', sep='\n')
+    text = input('Введите слово или букву!: ').lower()
+    while not guessed:
+        if not text.isalpha():
+            text = input('Введите букву или слово целиком!: ')
+        else:
+            if len(text) == 1:
+                guessed_letters.append(text)
+            else:
+                guessed_words.append(text)
+
+    print(guessed_letters)
+    print(guessed_words)
+
+
 
 
 
@@ -108,3 +116,4 @@ word_l = ['Кант', 'Хроника', 'Зал', 'Галера', 'Балл', '�
 
 word = get_word(word_l)
 play(word)
+
